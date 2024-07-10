@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { siteConfig } from "@/config/site";
-import { cn, shortenAddress } from "@/lib/utils";
+import { cn, shortenAddress, formatTimestamp } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -43,6 +43,9 @@ const actionCards: Array<{
 export default async function Pages() {
   //const bgImage = new URL("/background.png", requestUrl.origin).toString();
   const messages = await getMessages();
+  // for(let i = 0; i < 100; i++) {
+  //   messages.push({sender: "0x" + i, msg: "msg " + i, signature: "sig" + i, timestamp: i});
+  // }
   return (
     <>
       {/* <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:pt-32">
@@ -89,10 +92,8 @@ export default async function Pages() {
           </h2>
         </div>
 
-        <div className="p-3"
-          style={{
-            backgroundImage: `url("/background.png")`,
-          }}
+        <div className="p-3 bg-slate-800 rounded-lg"
+         
         >
           {messages.map((msg, key) => (
             <div key={key} className="flex flex-col relative mb-2">
@@ -102,9 +103,10 @@ export default async function Pages() {
                 </span>
               </div>
               <div className="rounded-b-lg rounded-tr-lg px-2 self-start bg-black bg-opacity-60">
-                <p className="text-md text-white">{msg.msg}</p>
+                <p className="text-md text-white my-2">{msg.msg}</p>
                 <div className="block text-xs">
-                  <a href={`https://solscan.io/tx/${msg.signature}`} target="_blank" className="underline">sig</a>
+                  <a href={`https://solscan.io/tx/${msg.signature}`} target="_blank" className="underline mr-2">sig</a>
+                  <span className="text-cs text-gray-500">{formatTimestamp(msg.timestamp)}</span>
                 </div>
               </div>
             </div>
