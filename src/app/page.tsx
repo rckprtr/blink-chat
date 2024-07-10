@@ -39,13 +39,11 @@ const actionCards: Array<{
     icon: <WalletIcon className="size-12" />,
   },
 ];
-
+export const fetchCache = 'force-no-store'
 export default async function Pages() {
   //const bgImage = new URL("/background.png", requestUrl.origin).toString();
   const messages = await getMessages();
-  // for(let i = 0; i < 100; i++) {
-  //   messages.push({sender: "0x" + i, msg: "msg " + i, signature: "sig" + i, timestamp: i});
-  // }
+
   return (
     <>
       {/* <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:pt-32">
