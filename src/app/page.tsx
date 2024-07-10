@@ -90,6 +90,10 @@ export default async function Pages() {
           </h2>
         </div>
 
+        <a href="https://actions.dialect.to/?action=solana-action:https://blink-chat.xyz/api/actions/chat" target="_blank" className="flex flex-col items-center gap-4 underline">
+          Check it out on Dialect
+        </a>
+
         <div className="p-3 bg-slate-800 rounded-lg"
          
         >
