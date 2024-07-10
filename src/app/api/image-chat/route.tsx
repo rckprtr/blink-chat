@@ -7,6 +7,12 @@ import { ImageResponse } from "next/og";
 export async function GET(req: Request) {
   let bgImage = new URL("background.png", new URL(req.url).origin).toString();
   let msgs = await getMessages();
+
+  //if msgs is longer than 15, only show the last 15
+  if (msgs.length > 15) {
+    msgs = msgs.slice(msgs.length - 15, msgs.length);
+  }
+
   return new ImageResponse(
     (
       <div
