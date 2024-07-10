@@ -24,8 +24,8 @@ export const GET = async (req: Request) => {
   const requestUrl = new URL(req.url);
 
   const baseHref = new URL(`/api/actions/chat`, requestUrl.origin).toString();
-  //current time in minutes
-  let currentTime = Math.floor(Date.now() / 1000 / 60);
+  //current time in seconds
+  let currentTime = Date.now() / 1000;
   const payload: ActionGetResponse = {
     title: "Blink Chat 💬",
     icon: new URL(`/api/image-chat?ts=${currentTime}`, new URL(req.url).origin).toString(),
