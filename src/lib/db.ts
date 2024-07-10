@@ -11,7 +11,7 @@ export async function addMessage(message: ChatMessage) {
   console.log("Added message", message, results);
 }
 
-export async function getMessages(): Promise<ChatMessage[]> {
-  let results = await kv.zrange(chatKey, 0, -1);
+export async function getMessages(max = -1): Promise<ChatMessage[]> {
+  let results = await kv.zrange(chatKey, 0, max);
   return results as ChatMessage[];
 }

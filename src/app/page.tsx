@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { getMessages } from "@/lib/db";
 
+
 const actionCards: Array<{
   title: string;
   href: string;
@@ -43,7 +44,6 @@ export const fetchCache = 'force-no-store'
 export default async function Pages() {
   //const bgImage = new URL("/background.png", requestUrl.origin).toString();
   const messages = await getMessages();
-
   return (
     <>
       {/* <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:pt-32">
