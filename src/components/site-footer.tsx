@@ -21,7 +21,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
               rel="noreferrer"
               className="font-medium underline underline-offset-4"
             >
-              @nickfrosty's
+              @nickfrosty&apos;s
             </a>
             {" "}
             <a
