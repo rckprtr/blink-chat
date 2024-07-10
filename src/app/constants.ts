@@ -1,0 +1,1 @@
+export const CHAT_ADDRESS = "chatSmZrFZytxJoVn6tTQkiBPZ6ARdnU2SnpaziMjYf";
