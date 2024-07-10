@@ -1,7 +1,7 @@
 import { SiteConfig } from "@/types";
 
 export const siteConfig: SiteConfig = {
-  name: "Solana Actions and Blinks",
+  name: "Solana Blink Chat",
   description: "",
   url: "https://",
   ogImage: "https://tx.shadcn.com/og.jpg",

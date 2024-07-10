@@ -70,5 +70,6 @@ export type UserSubscriptionPlan = SubscriptionPlan &
     sender: string;
     timestamp: number;
     msg: string;
+    signature: string;
   };
   

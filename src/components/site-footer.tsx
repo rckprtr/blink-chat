@@ -14,23 +14,43 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
         <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
           <Icons.logo />
           <p className="text-center text-sm leading-loose md:text-left">
-            Built by{" "}
+            Forked from{" "}
             <a
               href={siteConfig.links.twitter}
               target="_blank"
               rel="noreferrer"
               className="font-medium underline underline-offset-4"
             >
-              @nickfrosty
+              @nickfrosty's
             </a>
-            . Source code is available on{" "}
+            {" "}
             <a
               href={siteConfig.links.github}
               target="_blank"
               rel="noreferrer"
               className="font-medium underline underline-offset-4"
             >
+              repo
+            </a>
+            {" "}
+            . Source code for blink chat available on{" "}
+            <a
+              href='https://github.com/rckprtr/blink-chat'
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium underline underline-offset-4"
+            >
               GitHub
+            </a>{" "}by
+            {" "}
+            
+            <a
+              href='https://x.com/rckprtr'
+              target="_blank"
+              rel="noreferrer"
+              className="font-medium underline underline-offset-4"
+            >
+              @rckprtr
             </a>
             .
           </p>
@@ -45,7 +65,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
                 "px-4",
               )}
             >
-              Read the Docs
+              Read the Blink Docs
             </Link>
           </Button>
 

@@ -1,4 +1,5 @@
 import { CHAT_ADDRESS } from "@/app/constants";
+import { addMessage } from "@/lib/db";
 import { ACTIONS_CORS_HEADERS } from "@solana/actions";
 import { clusterApiUrl, Connection, VersionedTransactionResponse } from "@solana/web3.js";
 
@@ -35,6 +36,12 @@ export const POST = async (req: Request) => {
         if(msg){
           let timestamp = new Date(Number(webhookData[i].timestamp) * 1000)
           console.log(webhookData[i].feePayer + " says: " + msg, " at " + timestamp.toUTCString());
+          addMessage({
+            msg: msg,
+            timestamp: Number(webhookData[i].timestamp),
+            sender: webhookData[i].feePayer,
+            signature: webhookData[i].signature,
+          });
         }
       }
     }
