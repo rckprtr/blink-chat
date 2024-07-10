@@ -7,7 +7,6 @@ import { ImageResponse } from "next/og";
 export async function GET(req: Request) {
   let bgImage = new URL("background.png", new URL(req.url).origin).toString();
   let msgs = await getMessages();
-
   //if msgs is longer than 15, only show the last 15
   if (msgs.length > 15) {
     msgs = msgs.slice(msgs.length - 15, msgs.length);
@@ -43,7 +42,7 @@ export async function GET(req: Request) {
     },
   );
 
-  imageResponse.headers.set("Cache-Control", "public, max-age=10, s-maxage=10");
+  imageResponse.headers.set("Cache-Control", "public, max-age=1, s-maxage=1");
 
   return imageResponse;
 }
