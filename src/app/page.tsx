@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { siteConfig } from "@/config/site";
-import { cn } from "@/lib/utils";
+import { cn, shortenAddress } from "@/lib/utils";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -11,6 +11,7 @@ import {
   ShieldIcon,
   WalletIcon,
 } from "lucide-react";
+import { getMessages } from "@/lib/db";
 
 const actionCards: Array<{
   title: string;
@@ -40,6 +41,8 @@ const actionCards: Array<{
 ];
 
 export default async function Pages() {
+  //const bgImage = new URL("/background.png", requestUrl.origin).toString();
+  const messages = await getMessages();
   return (
     <>
       {/* <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:pt-32">
@@ -82,31 +85,29 @@ export default async function Pages() {
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-6 text-center">
           <h2 className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">
-            Example Solana Actions
+            Blink Chat
           </h2>
-          <p className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            This project contains examples code snippets for creating Solana
-            Actions.
-          </p>
         </div>
 
-        <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
-          {actionCards.map((item, key) => (
-            <Link key={key} href={item.href} className="group">
-              <Card className="group-hover:border-primary">
-                <CardHeader>
-                  <CardTitle className="space-y-3">
-                    {item.icon}
-                    <span className="block font-bold group-hover:text-pretty">
-                      {item.title}
-                    </span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-2">
-                  <p className="text-muted-foreground">{item.description}</p>
-                </CardContent>
-              </Card>
-            </Link>
+        <div className="p-3"
+          style={{
+            backgroundImage: `url("/background.png")`,
+          }}
+        >
+          {messages.map((msg, key) => (
+            <div key={key} className="flex flex-col relative mb-2">
+              <div className="flex">
+                <span className="text-gray-200 text-sm px-2 rounded-t-lg inline-block bg-black bg-opacity-60">
+                  {shortenAddress(msg.sender)}
+                </span>
+              </div>
+              <div className="rounded-b-lg rounded-tr-lg px-2 self-start bg-black bg-opacity-60">
+                <p className="text-md text-white">{msg.msg}</p>
+                <div className="block text-xs">
+                  <a href={`https://solscan.io/tx/${msg.signature}`} target="_blank" className="underline">sig</a>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
 
@@ -114,7 +115,10 @@ export default async function Pages() {
           <p className="leading-normal text-muted-foreground sm:text-lg sm:leading-7">
             You can find the{" "}
             <Button variant={"link"} asChild>
-              <Link href={siteConfig.links.github} target="_blank">
+              <Link
+                href="https://github.com/rckprtr/blink-chat"
+                target="_blank"
+              >
                 full source code
               </Link>
             </Button>{" "}

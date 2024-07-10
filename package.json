@@ -18,6 +18,7 @@
     "@solana/actions": "^1.0.1",
     "@solana/qr-code-styling": "^1.6.0",
     "@solana/web3.js": "^1.92.3",
+    "@vercel/kv": "^2.0.0",
     "bs58": "^5.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

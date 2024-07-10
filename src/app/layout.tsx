@@ -48,7 +48,7 @@ export default function RootLayout({
                         "px-4",
                       )}
                     >
-                      Read the Docs
+                      Read the Blink Docs
                     </Link>
                   </Button>
 
