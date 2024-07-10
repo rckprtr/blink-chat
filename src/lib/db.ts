@@ -13,6 +13,5 @@ export async function addMessage(message: ChatMessage) {
 
 export async function getMessages(): Promise<ChatMessage[]> {
   let results = await kv.zrange(chatKey, 0, -1);
-  console.log("Got messages", results);
   return results as ChatMessage[];
 }
