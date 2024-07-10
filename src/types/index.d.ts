@@ -70,6 +70,7 @@ export type UserSubscriptionPlan = SubscriptionPlan &
     sender: string;
     timestamp: number;
     msg: string;
+    sns: string | null;
     signature: string;
   };
   
