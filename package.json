@@ -1,5 +1,5 @@
 {
-  "name": "@solana/actions-example-next-js",
+  "name": "blink-chat",
   "version": "0.1.0",
   "private": true,
   "scripts": {
