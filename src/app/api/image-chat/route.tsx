@@ -23,7 +23,7 @@ export async function GET(req: Request) {
       >
         <div tw="flex-1 flex flex-col justify-end p-3 h-full overflow-hidden mb-3">
           {msgs.map((msg, key) => (
-            <div tw="flex flex-col relative mb-2">
+            <div key={key} tw="flex flex-col relative mb-2">
               <div tw="flex">
                 <span tw="text-gray-200 font-extrabold text-lg px-1 rounded-t-lg inline-block  bg-black bg-opacity-60">
                   {shortenAddress(msg.sender)}
