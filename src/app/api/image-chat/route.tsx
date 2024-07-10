@@ -13,7 +13,7 @@ export async function GET(req: Request) {
     msgs = msgs.slice(msgs.length - 15, msgs.length);
   }
 
-  return new ImageResponse(
+  let imageResponse = new ImageResponse(
     (
       <div
         style={{
@@ -42,4 +42,8 @@ export async function GET(req: Request) {
       height: 512,
     },
   );
+
+  imageResponse.headers.set("Cache-Control", "public, max-age=10, s-maxage=10");
+
+  return imageResponse;
 }
