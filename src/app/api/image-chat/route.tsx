@@ -3,7 +3,7 @@ import { shortenAddress } from "@/lib/utils";
 import { ImageResponse } from "next/og";
 // App router includes @vercel/og.
 // No need to install it.
-
+export const fetchCache = 'force-no-store'
 export async function GET(req: Request) {
   let bgImage = new URL("background.png", new URL(req.url).origin).toString();
   let msgs = await getMessages();
